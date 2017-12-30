@@ -6,6 +6,11 @@ function init_cmb2_location_map() {
     addressElem: document.getElementById('_doin_latlng_address')
   }
 
+  if (!elements.mapElem || !elements.latElem || !elements.lngElem || !elements.addressElem ) {
+    return;
+  }
+
+
   var latLng = new google.maps.LatLng(38.838283, -9.267047);
   window.map = new google.maps.Map(elements.mapElem, {
     center: latLng,

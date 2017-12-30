@@ -25,6 +25,9 @@ class CMB2_Render_Location_Field extends CMB2_Type_Base {
 			if (isset($field_settings['google_maps_api_key']) && !empty($field_settings['google_maps_api_key']))
 				$google_maps_key = $field_settings['google_maps_api_key'];
 
+			if (!isset($google_maps_key) || empty($google_maps_key))
+				$google_maps_key = 'AIzaSyB1QXxJn5eluFWGCtKtU9hsJhzTyYc8BN4'; // @todo - Nonono, this is stupid.
+
       wp_enqueue_script( 'cmb2-location-field-google-maps', 'https://maps.googleapis.com/maps/api/js?callback=init_cmb2_location_map&key='.$google_maps_key.'&libraries=places', array('jquery'), 1.0, true);
       wp_enqueue_script('cmb2-location-field', plugin_dir_url(__FILE__) . 'assets/js/cmb2-location-field.js');
 
